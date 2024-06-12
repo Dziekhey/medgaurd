@@ -1,7 +1,7 @@
 const analysis =[
     {
         name: 'Appointments',
-        total: 56
+        total: 20
     },
     {
         name: 'Oustanding Bill',
@@ -9,11 +9,11 @@ const analysis =[
     },
     {
         name: 'Notifications',
-        total: 11
+        total: 5
     },
     {
-        name: 'Appointments',
-        total: 56
+        name: 'Pending Reviews',
+        total: 1
     }
 ]
 

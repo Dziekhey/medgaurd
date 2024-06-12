@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import SideBar from "../../components/sidebar/SideBar";
 import { Route, Routes } from "react-router-dom";
 import Overview from "../overview/Overview";
-import Reviews from "../reviews/Reviews";
-import Notifications from "../notifications/Notifications";
 import { IconButton, useMediaQuery, Divider } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import AppointmentHistory from "../appointmenthistory/AppointmentHistory";
 import BillsAndPayments from "../BillsAndPayments/BillsAndPayments";
+import NotificationsPage from "../notifications/NotificationsPage";
+import ReviewsPage from "../reviews/ReviewsPage";
 
 const Dashboard = () => {
-  const [openSideBar, setOpenSideBar] = useState(true);
+  const [openSideBar, setOpenSideBar] = useState(false);
   const isSmallScreen = useMediaQuery("(max-width:900px)");
 
   const handleClose = () => {
@@ -54,8 +54,8 @@ const Dashboard = () => {
           <Route path="/" element={<Overview />} />
           <Route path="/appointment history" element={<AppointmentHistory />} />
           <Route path="/bills and payments" element={<BillsAndPayments />} />
-          <Route path="/my reviews" element={<Reviews />} />
-          <Route path="/notifications" element={<Notifications />} />
+          <Route path="/my reviews" element={<ReviewsPage />} />
+          <Route path="/notifications" element={<NotificationsPage />} />
         </Routes>
       </div>
     </div>

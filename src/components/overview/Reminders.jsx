@@ -7,7 +7,7 @@ import PendingCard from "../cards/PendingCard";
 const Reminders = () => {
   return (
     <>
-      <div className="shadow-md shadow-cobalt rounded-xl w-full h-60">
+      <div className="shadow-md shadow-cobalt rounded-xl w-full lg:h-60">
         <div className="flex justify-center text-azure pt-2">
           <h1>Reminders</h1>
         </div>

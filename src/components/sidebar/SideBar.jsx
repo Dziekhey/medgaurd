@@ -20,11 +20,12 @@ const SideBar = ({ open, handleClose, isSmallScreen }) => {
       onClose={handleClose}
       open={open}
       anchor="left"
-      sx={{
-        "& .MuiDrawer-paper": {
+      PaperProps={{
+        sx: {
           boxSizing: "border-box",
           width: isSmallScreen ? "60vw" : "20vw",
-        },
+          backgroundColor: '#004AAD'
+        }
       }}
     >
       <div className="flex flex-col justify-between h-[100vh]">
@@ -36,7 +37,7 @@ const SideBar = ({ open, handleClose, isSmallScreen }) => {
             <>
               <div
                 onClick={() => handleNavigate(navigation)}
-                className="px-3 text-martinique flex space-x-2 cursor-pointer"
+                className="px-3 text-white flex space-x-2 cursor-pointer"
                 key={index}
               >
                 {navigation.icon}
@@ -47,7 +48,7 @@ const SideBar = ({ open, handleClose, isSmallScreen }) => {
           ))}
         </div>
         <div className="pb-3">
-          <div className="flex flex-col text-martinique px-4">
+          <div className="flex flex-col text-white px-4">
             <h5 className="font-bold">Need Help?</h5>
             <div className="flex space-x-2">
               <CallIcon />

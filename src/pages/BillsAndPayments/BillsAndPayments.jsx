@@ -42,29 +42,30 @@ const BillsAndPayments = () => {
 
   return (
     <>
-      <BillsSection
-        calculateTotalAmount={calculateTotalAmount}
-        calculateTotalPaid={calculateTotalPaid}
-        getStatusClass={getStatusClass}
-        totalBalance={totalBalance}
-      />
-
-      <PaymentSection />
-      <Box mt={4}>
-        <Card className="mt-1">
-          <CardHeader
-            title={`Total Outstanding Bill: GH₵${totalBalance.toFixed(2)}`}
-            sx={{
-              pt: 2,
-              alignItems: "center",
-              "& .MuiCardHeader-title": {
-                color: "martinique",
-                fontWeight: "bold",
-              },
-            }}
-          />
-        </Card>
-      </Box>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <BillsSection
+          calculateTotalAmount={calculateTotalAmount}
+          calculateTotalPaid={calculateTotalPaid}
+          getStatusClass={getStatusClass}
+          totalBalance={totalBalance}
+        />
+        <PaymentSection />
+        <Box mt={4}>
+          <Card className="mt-1">
+            <CardHeader
+              title={`Total Outstanding Bill: GH₵${totalBalance.toFixed(2)}`}
+              sx={{
+                pt: 2,
+                alignItems: "center",
+                "& .MuiCardHeader-title": {
+                  color: '#383961',
+                  fontWeight: "bold",
+                },
+              }}
+            />
+          </Card>
+        </Box>
+      </div>
     </>
   );
 };

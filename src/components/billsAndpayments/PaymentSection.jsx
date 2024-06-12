@@ -24,7 +24,7 @@ const PaymentSection = () => {
               pt: 2,
               alignItems: "center",
               "& .MuiCardHeader-title": {
-                color: "martinique",
+                color: '#383961',
                 fontWeight: "bold",
               },
             }}
@@ -35,25 +35,25 @@ const PaymentSection = () => {
                 <TableRow>
                   <TableCell
                     align="left"
-                    sx={{ fontWeight: "bold", color: "martinique" }}
+                    sx={{ fontWeight: "bold", color: '#383961' }}
                   >
                     Payment Date
                   </TableCell>
                   <TableCell
                     align="left"
-                    sx={{ fontWeight: "bold", color: "martinique" }}
+                    sx={{ fontWeight: "bold", color: '#383961' }}
                   >
                     Method
                   </TableCell>
                   <TableCell
                     align="left"
-                    sx={{ fontWeight: "bold", color: "martinique" }}
+                    sx={{ fontWeight: "bold", color: '#383961' }}
                   >
                     Amount
                   </TableCell>
                   <TableCell
                     align="left"
-                    sx={{ fontWeight: "bold", color: "martinique" }}
+                    sx={{ fontWeight: "bold", color: '#383961' }}
                   >
                     Reference Number
                   </TableCell>
@@ -69,13 +69,13 @@ const PaymentSection = () => {
                       <TableCell align="left" className="text-martinique">
                         {payment.date}
                       </TableCell>
-                      <TableCell align="left" sx={{ color: "martinique" }}>
+                      <TableCell align="left" sx={{ color: '#383961' }}>
                         {payment.method}
                       </TableCell>
-                      <TableCell align="left" sx={{ color: "martinique" }}>
+                      <TableCell align="left" sx={{ color: '#383961' }}>
                         GH₵{payment.amount.toFixed(2)}
                       </TableCell>
-                      <TableCell align="left" sx={{ color: "martinique" }}>
+                      <TableCell align="left" sx={{ color: '#383961' }}>
                         {payment.referenceNumber}
                       </TableCell>
                     </TableRow>
