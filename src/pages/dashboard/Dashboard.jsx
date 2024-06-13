@@ -9,6 +9,7 @@ import BillsAndPayments from "../BillsAndPayments/BillsAndPayments";
 import NotificationsPage from "../notifications/NotificationsPage";
 import ReviewsPage from "../reviews/ReviewsPage";
 
+
 const Dashboard = () => {
   const [openSideBar, setOpenSideBar] = useState(false);
   const isSmallScreen = useMediaQuery("(max-width:900px)");

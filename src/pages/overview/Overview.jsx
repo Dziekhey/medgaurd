@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { analysis } from "../../Data/Analysis";
 import AnalysisCard from "../../components/cards/AnalysisCard";
 import PersonalDetails from "../../components/overview/PersonalDetails";
 import Reminders from "../../components/overview/Reminders";
 import VitalAssessment from "../../components/overview/VitalAssessment";
+import { useNavigate } from "react-router-dom";
 
 const Overview = () => {
+  const first_name = localStorage.getItem("first_name");
+  const last_name = localStorage.getItem("last_name");
+  const token = localStorage.getItem("token");
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!token) navigate("/login");
+  }, []);
   return (
     <>
       <div className="p-2 w-full">
         <div className="border lg:h-16 md:flex lg:flex items-center p-2 lg:p-5 rounded-2xl border-azure">
           <h1 className="text-xl lg:text-3xl font-bold text-cobalt">
-            Welcome Abena Fosu!
+            Welcome {first_name} {last_name}!
           </h1>
           <div className="lg:flex pt-2 pl-2">
             <h1 className="text-sm lg:text-md"> Your health and well-being are our priority.</h1>

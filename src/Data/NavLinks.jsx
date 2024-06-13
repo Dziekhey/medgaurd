@@ -4,6 +4,7 @@ import ReviewsIcon from '@mui/icons-material/Reviews';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import HistoryIcon from '@mui/icons-material/History';
 
+
 const navigations = [
     {
         title: "Overview",
@@ -29,7 +30,7 @@ const navigations = [
         title: "Notifications",
         icon: <NotificationsIcon />,
         route: "/notifications"
-    }
+    },
 ]
 
 export {navigations}

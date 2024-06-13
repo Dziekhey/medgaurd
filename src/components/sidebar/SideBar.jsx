@@ -5,9 +5,12 @@ import { navigations } from "../../Data/NavLinks";
 import logo from "../../assets/Logo.png";
 import CallIcon from "@mui/icons-material/Call";
 import EmailIcon from "@mui/icons-material/Email";
+import LogoutIcon from "@mui/icons-material/Logout";
+import { useAuth } from "../../services/AuthProvider";
 
 const SideBar = ({ open, handleClose, isSmallScreen }) => {
   const navigate = useNavigate();
+  const { logOut } = useAuth();
 
   const handleNavigate = (navigation) => {
     navigate(navigation.route);
@@ -24,12 +27,12 @@ const SideBar = ({ open, handleClose, isSmallScreen }) => {
         sx: {
           boxSizing: "border-box",
           width: isSmallScreen ? "60vw" : "20vw",
-          backgroundColor: '#004AAD'
-        }
+          backgroundColor: "#004AAD",
+        },
       }}
     >
       <div className="flex flex-col justify-between h-[100vh]">
-        <div className="w-full h-[30vh]">
+        <div className="w-full h-[25vh]">
           <img src={logo} alt="Logo" className="h-full w-full object-contain" />
         </div>
         <div className="flex flex-col space-y-3 pt-2 pb-10 text-md gap-2 justify-center">
@@ -47,16 +50,22 @@ const SideBar = ({ open, handleClose, isSmallScreen }) => {
             </>
           ))}
         </div>
+        <div className="px-4 pb-8">
+          <button className="text-white" onClick={logOut}>
+            <LogoutIcon />
+            Logout
+          </button>
+        </div>
         <div className="pb-3">
           <div className="flex flex-col text-white px-4">
-            <h5 className="font-bold">Need Help?</h5>
+            <h5 className="font-bold text-md">Need Help?</h5>
             <div className="flex space-x-2">
               <CallIcon />
-              <h6>+233 208 547 123</h6>
+              <h6 className="text-sm">+233 208 547 123</h6>
             </div>
             <div className="flex space-x-2">
               <EmailIcon />
-              <h6>medgaurd@gmail.com</h6>
+              <h6 className="text-sm">medgaurd@gmail.com</h6>
             </div>
           </div>
         </div>
