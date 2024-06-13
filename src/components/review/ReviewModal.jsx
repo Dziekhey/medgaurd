@@ -9,6 +9,7 @@ import {
   MenuItem,
 } from "@mui/material";
 import { departments, emojis } from "../../Data/Reviews";
+import toast from "react-hot-toast";
 
 const style = {
   position: "absolute",
@@ -23,22 +24,38 @@ const style = {
   p: 4,
 };
 
-const ReviewModal = ({ open, handleClose }) => {
+const ReviewModal = ({ open, handleClose, handleNewReview }) => {
   const [selectedEmoji, setSelectedEmoji] = useState(null);
   const [comment, setComment] = useState("");
   const [department, setDepartment] = useState("");
 
-  const handleSubmit = () => {
-    // Handle review submission logic here
-    console.log({
-      rating: selectedEmoji,
-      department: department,
-      comment,
-    });
-    setSelectedEmoji(null);
-    setComment("");
-    setDepartment("");
-    handleClose(); // Close the modal after submission
+  const handleSubmit = async () => {
+    try {
+      const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/reviews`, {
+        method: "POST",
+        body: JSON.stringify({
+          rating: selectedEmoji,
+          department: department,
+          comment: comment,
+        }),
+        headers: { "Content-Type": "application/json"}
+      });
+
+      const data = await response.json();
+
+      if (response.status === 201) {
+        handleNewReview(data);
+        toast.success("Review was posted successfully");
+        setSelectedEmoji(null);
+        setComment("");
+        setDepartment("");
+        handleClose();
+      } else {
+        toast.error(data.errorMsg);
+      }
+    } catch (error) {
+      console.log(error);
+    } 
   };
 
   const CloseAndReset = () => {
@@ -62,10 +79,10 @@ const ReviewModal = ({ open, handleClose }) => {
         <Box sx={{ display: "flex", justifyContent: "center", mt: 2, color: '#383961' }}>
           {emojis.map((emoji, index) => (
             <Box key={index} sx={{ textAlign: "center", mx: 1, color: '#383961' }}>
-              <h1 className="text-xs text-martinique lg:text-md">{emoji.name}</h1>
+              <Typography variant="body2" className="text-xs text-martinique lg:text-md">{emoji.name}</Typography>
               <IconButton
                 onClick={() => setSelectedEmoji(emoji.name)}
-                color={selectedEmoji === emoji.name ? "#004AAD" : "default"}
+                color={selectedEmoji === emoji.name ? "primary" : "default"}
                 sx={{
                   fontSize: "1.5rem",
                   ...(selectedEmoji === emoji.name && {
@@ -91,7 +108,6 @@ const ReviewModal = ({ open, handleClose }) => {
           onChange={(e) => setDepartment(e.target.value)}
           fullWidth
           sx={{ color: '#383961'}}
-         
           margin="normal"
         >
           {departments.map((option) => (

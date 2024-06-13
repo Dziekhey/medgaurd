@@ -15,13 +15,13 @@ export const reviews = [
 
 
 export const departments = [
-    { value: "cardiology", label: "Cardiology" },
-    { value: "dermatology", label: "Dermatology" },
-    { value: "neurology", label: "Neurology" },
-    { value: "oncology", label: "Oncology" },
-    { value: "pediatrics", label: "Pediatrics" },
-    { value: "radiology", label: "Radiology" },
-    { value: "surgery", label: "Surgery" },
+    { value: "Cardiology", label: "Cardiology" },
+    { value: "Dermatology", label: "Dermatology" },
+    { value: "Neurology", label: "Neurology" },
+    { value: "Oncology", label: "Oncology" },
+    { value: "Pediatrics", label: "Pediatrics" },
+    { value: "Radiology", label: "Radiology" },
+    { value: "Surgery", label: "Surgery" },
   ];
 
 export const emojis = [
